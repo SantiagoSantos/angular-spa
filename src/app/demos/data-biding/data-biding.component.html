@@ -1,0 +1,44 @@
+<div class="container main-container">
+    <h3>Interpolation</h3>
+    <!-- <p>O número de cliques é: {{ contadorClique }}</p> -->
+
+    <p [ngClass]="{
+        'text-secondary':contadorClique < 3,
+        'text-success': contadorClique >= 3,
+        'text-warning': contadorClique >= 5,
+        'text-danger': contadorClique >= 9
+    }">O número de cliques é: {{ contadorClique }}</p>
+
+    <br>
+
+    <h3>Property Biding</h3>
+
+    <button class="btn btn-info" [disabled]="contadorClique >= 10">{{textButton}}</button>
+    <br>
+    <br>
+
+    <label for="imagem">Imagem renderizada por Property Biding:</label>
+    <img id="imagem" [src]="urlImagem" height="50px" width="50px">
+
+    <br><br>
+
+    <h3>Property Biding</h3>
+    <p><button class="btn btn-warning" (click)='adicionarClique()'>Incrementar Contador</button></p>
+    <p><button class="btn btn-danger" (click)='zerarContador()' [disabled]='contadorClique < 10'>Zerar Contador</button></p>
+
+    <br><br>
+
+    <h3>Two-way Biding</h3>
+    <!-- <input type="text" (keyup)='KeyUp($event)' placeholder="Digite algo na caixa de texto">
+    <br><br>
+    <label>Conteúdo digitado: {{ nome }}</label> -->
+
+    <!-- <input type="text" [(ngModel)]="nome" (ngModelChange)='nome = $event' placeholder="Digite algo aqui">
+    <br><br>
+    <label>Conteúdo digitado: {{ nome }}</label> -->
+
+    <input type="text" [(ngModel)]="texto" placeholder="Digite algo aqui">
+    <br><br>
+    <!-- <label class="{{ texto }}">Conteúdo digitado: {{ texto }}</label> -->
+    <label [ngClass]="texto">Conteúdo digitado: {{ texto }}</label>
+</div>
